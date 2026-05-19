@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN gradle clean build -x test
 
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=build /app/build/libs/*.war app.war
 EXPOSE 8080
